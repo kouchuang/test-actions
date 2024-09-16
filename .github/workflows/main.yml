@@ -13,7 +13,6 @@ jobs:
 
     env:
       JDK_VERSION: 21
-      MAVEN_VERSION: 3.9.6
 
     steps:
       - name: Checkout
@@ -25,12 +24,6 @@ jobs:
           distribution: 'adopt'
           java-version: ${{ env.JDK_VERSION }}
 
-      - name: Set up Maven
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'maven'
-          java-version: ${{ env.JDK_VERSION }}
-          maven-version: ${{ env.MAVEN_VERSION }}
 
       - name: 查看运行环境
         run: mvn -v
@@ -40,6 +33,8 @@ jobs:
 
       - name: 打包
         run: mvn package
+
+
 
       - name: 运行多行的shell命令
         run: |
