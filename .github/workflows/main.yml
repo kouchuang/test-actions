@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: 制品
-          path: target/test-actions-1.0-SNAPSHOT.jar
+          path: target/test-actions-1.0.0-SNAPSHOT.jar
 
       - name: 运行多行的shell命令
         run: |
