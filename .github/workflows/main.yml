@@ -14,25 +14,34 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  # This workflow contains a single job called "build"
+  name: maven打包
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    name: Checkout
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+            - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: 运行echo命令
-        run: echo Hello, world!
+            - name: 查看运行环境
+              run: mvn -v
+
+            - name: 查看是否有java环境
+              run: java -version
+
+            - name: 打包
+              run: mvn package
 
 
-      - name: 运行多行的shell命令
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          ls
-          pwd
+
+            - name: 运行多行的shell命令
+              run: |
+                echo Add other actions to build,
+                echo test, and deploy your project.
+                ls
+                pwd
