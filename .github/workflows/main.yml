@@ -35,7 +35,7 @@ jobs:
         run: mvn package
 
       - name: 制品上传
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: 制品
           path: target/test-actions-1.0-SNAPSHOT.jar
