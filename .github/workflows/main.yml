@@ -34,7 +34,11 @@ jobs:
       - name: 打包
         run: mvn package
 
-
+      - name: 制品上传
+        uses: actions/upload-artifact@v2
+        with:
+          name: 制品
+          path: target/test-actions-1.0-SNAPSHOT.jar
 
       - name: 运行多行的shell命令
         run: |
@@ -42,3 +46,4 @@ jobs:
           echo test, and deploy your project.
           ls
           pwd
+          ls target/
